@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function playRound(myans,botans){
+            myans = myans.toUpperCase();
+            if (myans === "ROCK") {
+                if (botans === "paper") {
+                    return "lose";
+                } else if (botans ==="scissors") {
+                    return "win";
+                } else return "tie";
+
+            } else if (myans === "PAPER") {
+                if (botans === "scissors") {
+                    return "lose";
+                } else if (botans ==="rock") {
+                    return "win";
+                } else return "tie";
+
+            } else if (myans === "SCISSORS"){
+                if (botans === "rock") {
+                    return "lose";
+                } else if (botans ==="paper") {
+                    return "win"
+                } else return "tie";
+            } else return "bad input";
+
+        }
+
+        function getComputerChoice(){
+            let botans = Math.random()*3;
+            if (botans > 2) return "rock";
+            else if (botans > 1) return "paper";
+            else return "scissors";
+        }
+
+        function game() {
+            let mywins = 0;
+            let botwins = 0;
+            let result;
+            for (let i = 1; i <= 5; i++){
+                result = playRound(prompt(),getComputerChoice());
+                console.log(result);
+                if (result === "win") mywins++;
+                else if (result != "tie") botwins++;
+            }
+            if (mywins > botwins) console.log("You win the game!");
+            else if (botwins > mywins) console.log("You lost the game lol");
+            else console.log("Tie!");
+        }
+
+        game();
+    </script>
+    
+</body>
+</html>
