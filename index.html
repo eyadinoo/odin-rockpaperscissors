@@ -36,6 +36,7 @@
         const title = document.querySelector("h1");
         restart.id = "restart";
         const wrapper = document.getElementById('wrapper');
+        const input = document.querySelector("input");
         const rockImage = new Image();
         rockImage.src = "img/rock.png";
         const paperImage = new Image();
@@ -59,6 +60,10 @@
             rAnnounce.remove();
             restart.remove();
             wrapper.appendChild(roundForm);
+            input.value = "";
+            botReport.style.color = "white";
+            botReport.innerHTML = 'Credit to<a href="https://www.vecteezy.com/">https://www.vecteezy.com/</a>for game icons';
+
         });
         let rounds = 0;
             
